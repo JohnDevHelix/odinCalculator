@@ -52,17 +52,37 @@ divButtons.forEach((button) => {
         const opButton = document.querySelector(".operator");
         const secondDigit = document.querySelector(".second-num");
 
-        if ((isNaN(parseFloat(button.innerHTML)) === false || button.innerHTML == ".") && opButton.innerHTML === "") {
+        // getFirstDigit
+
+        if (isNaN(parseFloat(button.innerHTML)) === false || button.innerHTML == ".") {
             if (firstDigit.innerHTML.includes(".") === true && button.innerHTML == ".") {
                 firstDigit.innerHTML += "";
-            } else {
-                firstDigit.innerHTML += button.innerHTML;
+            } else if (button.innerHTML == "." && firstDigit.innerHTML === "") {
+                firstDigit.innerHTML = 0 + button.innerHTML;
             }
-            firstNum = firstDigit.innerHTML;
+            else if (opButton.innerHTML === "" && total === undefined) {
+
+                if (firstDigit.innerHTML.replace(".", "").length > 14) {
+                    firstDigit.innerHTML += "";
+                } else {
+                    firstDigit.innerHTML += button.innerHTML;
+                }
+            }
+            if (firstDigit.innerHTML == "") {
+                firstNum = 0;
+            } else {
+                firstNum = firstDigit.innerHTML;
+            }
         }
 
-        else if ((isNaN(parseFloat(button.innerHTML)) === true && button.innerHTML != "." && button.innerHTML != "=") && button.innerHTML != "C") {
-            if (operator === undefined) {
+
+        // getOperator
+
+        if ((isNaN(parseFloat(button.innerHTML)) === true && button.innerHTML != "." && button.innerHTML != "=") && button.innerHTML != "C") {
+            if (secondDigit.innerHTML == "") {
+                if (firstNum === "0.") {
+                    firstDigit.innerHTML = 0;
+                }
                 opButton.innerHTML = button.innerHTML;
                 operator = opButton.innerHTML;
             } else if (operator != undefined) {
@@ -77,14 +97,26 @@ divButtons.forEach((button) => {
             }
         }
 
-        else if ((isNaN(parseFloat(button.innerHTML)) === false || button.innerHTML == ".") && opButton.innerHTML != "") {
+        // getSecondDigit
+
+        if ((isNaN(parseFloat(button.innerHTML)) === false || button.innerHTML == ".") && opButton.innerHTML != "") {
             if (secondDiv.innerHTML.includes(".") === true && button.innerHTML == ".") {
-                firstDigit.innerHTML += "";
-            } else { secondDigit.innerHTML += button.innerHTML; }
+                secondDigit.innerHTML += "";
+            } else if (button.innerHTML == "." && secondDigit.innerHTML === "") {
+                secondDigit.innerHTML = 0 + button.innerHTML;
+            } else {
+                if (secondDigit.innerHTML.replace(".", "").length > 14) {
+                    secondDigit.innerHTML += "";
+                } else {
+                    secondDigit.innerHTML += button.innerHTML;
+                }
+            }
             secondNum = secondDiv.innerHTML;
         }
 
-        else if (button.innerHTML == "C") {
+        // getReset
+
+        if (button.innerHTML == "C") {
             firstDigit.innerHTML = "";
             secondDiv.innerHTML = "";
             operatorDiv.innerHTML = "";
@@ -94,23 +126,23 @@ divButtons.forEach((button) => {
             total = undefined;
         }
 
+        // getEqual
 
-        if (button.innerHTML == "=" && total === undefined) {
-            firstDigit.innerHTML = "";
-            secondDiv.innerHTML = "";
-            operatorDiv.innerHTML = "";
-            operate(firstNum, operator, secondNum);
-            operator = undefined;
-            firstNum = total;
-            secondNum = 0;
-        } else if (button.innerHTML == "=" && total != undefined) {
-            firstDigit.innerHTML = "";
-            secondDiv.innerHTML = "";
-            operatorDiv.innerHTML = "";
-            operate(total, operator, secondNum);
-            operator = undefined;
-            firstNum = total;
-            secondNum = 0;
+
+        if (button.innerHTML == "=") {
+            if (firstDigit.innerHTML != "" && opButton.innerHTML != "" && secondDigit.innerHTML == "") {
+                operatorDiv.innerHTML = "";
+            } else if (opButton.innerHTML == "" && secondDigit.innerHTML == "") {
+                secondDiv.innerHTML = "";
+                operatorDiv.innerHTML = "";
+                operate(total, operator, secondNum);
+            }
+            else {
+                secondDiv.innerHTML = "";
+                operatorDiv.innerHTML = "";
+                operate(firstNum, operator, secondNum);
+            }
         }
+
     });
 });
