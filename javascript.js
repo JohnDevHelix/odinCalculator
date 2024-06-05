@@ -1,21 +1,21 @@
 function toAdd(a, b) {
     total = parseFloat(a) + parseFloat(b);
-    return firstDigit.innerHTML = total;
+    return firstDigit.innerHTML = parseFloat(total.toFixed(2));
 }
 
 function toSubtract(a, b) {
     total = parseFloat(a) - parseFloat(b);
-    return firstDigit.innerHTML = total;
+    return firstDigit.innerHTML = parseFloat(total.toFixed(2));
 }
 
 function toMultiply(a, b) {
     total = parseFloat(a) * parseFloat(b);
-    return firstDigit.innerHTML = total;
+    return firstDigit.innerHTML = parseFloat(total.toFixed(2));
 }
 
 function toDivide(a, b) {
     total = parseFloat(a) / parseFloat(b);
-    return firstDigit.innerHTML = total;
+    return firstDigit.innerHTML = parseFloat(total.toFixed(2));
 }
 
 let firstNum = 0;
