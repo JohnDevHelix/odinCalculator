@@ -1,6 +1,8 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: tahoma, sans-serif;
+  font-size: 20px;
 }
 
 .result-container {
@@ -16,44 +18,68 @@ body {
   border: 2px black solid;
   flex-direction: column;
   height: 100px;
-  width: 405px;
+  width: 424px;
 }
 
 .main-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 20px;
 }
 
 .calc-container {
   display: flex;
-  border: 1px black solid;
+  gap: 10px;
 }
 
 .num-container {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .numbers {
   display: flex;
-  border: 1px solid black;
   width: 100px;
   height: 100px;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  color: whitesmoke;
+  background-color: #240750;
 }
 
-.ops-container {
+.op-container {
   display: flex;
   flex-direction: column;
+  gap: 2%;
 }
 
 .ops {
   display: flex;
-  border: 1px solid black;
   width: 100px;
   height: 79.6px;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  color: whitesmoke;
+  background-color: #344c64;
+}
+
+.ops:hover,
+.numbers:hover {
+  background-color: #577b8d;
+}
+
+.ops:active,
+.numbers:active {
+  background-color: #57a6a1;
+}
+
+.first-num,
+.second-num,
+.operator {
+  padding-right: 10px;
+  padding-bottom: 2px;
 }
