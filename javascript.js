@@ -35,6 +35,7 @@ function operate(numOne, opSign, numTwo) {
     }
 }
 
+
 const firstDigit = document.querySelector(".first-num");
 const secondDiv = document.createElement("div");
 secondDiv.classList.add("second-num");
@@ -51,6 +52,7 @@ divButtons.forEach((button) => {
 
         const opButton = document.querySelector(".operator");
         const secondDigit = document.querySelector(".second-num");
+
 
         // getFirstDigit
 
@@ -78,7 +80,7 @@ divButtons.forEach((button) => {
 
         // getOperator
 
-        if ((isNaN(parseFloat(button.innerHTML)) === true && button.innerHTML != "." && button.innerHTML != "=") && button.innerHTML != "C") {
+        if ((isNaN(parseFloat(button.innerHTML)) === true && button.innerHTML != "." && button.innerHTML != "=") && button.innerHTML != "CE" && button.innerHTML != "C") {
             if (secondDigit.innerHTML == "") {
                 if (firstNum === "0.") {
                     firstDigit.innerHTML = 0;
@@ -130,7 +132,7 @@ divButtons.forEach((button) => {
 
 
         if (button.innerHTML == "=") {
-            if (firstDigit.innerHTML != "" && opButton.innerHTML != "" && secondDigit.innerHTML == "") {
+            if (firstDigit.innerHTML != "" && operatorDiv.innerHTML != "" && secondDigit.innerHTML == "") {
                 operatorDiv.innerHTML = "";
             } else if (opButton.innerHTML == "" && secondDigit.innerHTML == "") {
                 secondDiv.innerHTML = "";
@@ -141,6 +143,18 @@ divButtons.forEach((button) => {
                 secondDiv.innerHTML = "";
                 operatorDiv.innerHTML = "";
                 operate(firstNum, operator, secondNum);
+            }
+        }
+
+        // toDelete
+
+        if (button.innerHTML == "CE") {
+            if (firstDigit.innerHTML != "" && operatorDiv.innerHTML == "" && secondDigit.innerHTML == "" && isNaN(firstDigit.innerHTML) == false) {
+                firstDigit.innerHTML = firstDigit.innerHTML.slice(0, -1);
+            } else if (firstDigit.innerHTML != "" && operatorDiv.innerHTML != "" && secondDigit.innerHTML == "") {
+                operatorDiv.innerHTML = operatorDiv.innerHTML.slice(0, -1);
+            } else if (firstDigit.innerHTML != "" && operatorDiv.innerHTML != "" && secondDigit.innerHTML != "") {
+                secondDigit.innerHTML = secondDigit.innerHTML.slice(0, -1);
             }
         }
 
