@@ -132,14 +132,15 @@ divButtons.forEach((button) => {
 
 
         if (button.innerHTML == "=") {
-            if (firstDigit.innerHTML != "" && operatorDiv.innerHTML != "" && secondDigit.innerHTML == "") {
+            if (firstDigit.innerHTML != "" && opButton.innerHTML == "" && secondDigit.innerHTML =="" && total == undefined) {   
+                firstDigit.innerHTML = firstNum;
+            } else if (firstDigit.innerHTML != "" && operatorDiv.innerHTML != "" && secondDigit.innerHTML == "") {
                 operatorDiv.innerHTML = "";
             } else if (opButton.innerHTML == "" && secondDigit.innerHTML == "") {
                 secondDiv.innerHTML = "";
                 operatorDiv.innerHTML = "";
                 operate(total, operator, secondNum);
-            }
-            else {
+            } else {
                 secondDiv.innerHTML = "";
                 operatorDiv.innerHTML = "";
                 operate(firstNum, operator, secondNum);
@@ -149,7 +150,7 @@ divButtons.forEach((button) => {
         // toDelete
 
         if (button.innerHTML == "CE") {
-            if (firstDigit.innerHTML != "" && operatorDiv.innerHTML == "" && secondDigit.innerHTML == "" && isNaN(firstDigit.innerHTML) == false) {
+            if (firstDigit.innerHTML != "" && operatorDiv.innerHTML == "" && secondDigit.innerHTML == "" && isNaN(firstDigit.innerHTML) == false && firstDigit.innerHTML != Infinity && total == undefined) {
                 firstDigit.innerHTML = firstDigit.innerHTML.slice(0, -1);
             } else if (firstDigit.innerHTML != "" && operatorDiv.innerHTML != "" && secondDigit.innerHTML == "") {
                 operatorDiv.innerHTML = operatorDiv.innerHTML.slice(0, -1);
@@ -157,6 +158,8 @@ divButtons.forEach((button) => {
                 secondDigit.innerHTML = secondDigit.innerHTML.slice(0, -1);
             }
         }
+
+        
 
     });
 });
