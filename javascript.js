@@ -18,6 +18,14 @@ function toDivide(a, b) {
     return firstDigit.innerHTML = parseFloat(total.toFixed(2));
 }
 
+function mouseToEnter(hover) {
+    hover.target.style.backgroundColor = "#577b8d";
+}
+
+function mouseToLeave(hover) {
+    hover.target.style.backgroundColor = "#344c64";
+}
+
 let firstNum = 0;
 let operator;
 let secondNum = 0;
@@ -132,7 +140,7 @@ divButtons.forEach((button) => {
 
 
         if (button.innerHTML == "=") {
-            if (firstDigit.innerHTML != "" && opButton.innerHTML == "" && secondDigit.innerHTML =="" && total == undefined) {   
+            if (firstDigit.innerHTML != "" && opButton.innerHTML == "" && secondDigit.innerHTML == "" && total == undefined) {
                 firstDigit.innerHTML = firstNum;
             } else if (firstDigit.innerHTML != "" && operatorDiv.innerHTML != "" && secondDigit.innerHTML == "") {
                 operatorDiv.innerHTML = "";
@@ -159,7 +167,12 @@ divButtons.forEach((button) => {
             }
         }
 
-        
+        // if Infinity or NaN
 
+        if (firstDigit.innerHTML == Infinity || firstDigit.innerHTML == "NaN") {
+            document.querySelectorAll(".ops").forEach((operatorDisabled) => {
+                operatorDisabled.style.backgroundColor = "black";
+            })
+        }
     });
 });
