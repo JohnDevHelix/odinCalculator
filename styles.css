@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: tahoma, sans-serif;
   font-size: 20px;
+  background-color: #070f2b;
 }
 
 .result-container {
@@ -15,10 +16,10 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  border: 2px black solid;
+  border: 3px white ridge;
   flex-direction: column;
   height: 100px;
-  width: 424px;
+  width: 422px;
 }
 
 .main-container {
@@ -60,7 +61,7 @@ body {
 .ops {
   display: flex;
   width: 100px;
-  height: 79.6px;
+  height: 100px;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
@@ -70,13 +71,13 @@ body {
   font-size: 25px;
 }
 
-.ops:hover,
-.numbers:hover {
+/* major commit - updated styles for new buttons */
+
+.buttons:hover {
   background-color: #577b8d;
 }
 
-.ops:active,
-.numbers:active {
+.buttons:active {
   background-color: #57a6a1;
 }
 
@@ -84,16 +85,32 @@ body {
 .second-num,
 .operator {
   padding-right: 10px;
-  padding-bottom: 2px;
-  
+  padding-bottom: 6px;
+  color: white;
 }
 
-#dot, #equal {
-    font-weight: bolder;
-    font-size: 25px;
+#dot {
+  font-weight: bolder;
+  font-size: 25px;
 }
 
-#clear {
-    font-size: 30px;
+#clear,
+#equal {
+  font-size: 30px;
+  background-color: #8c6a5d;
+  font-weight: bolder;
 }
 
+#clear:hover,
+#equal:hover {
+  background-color: #5f374b;
+}
+
+#clear:active,
+#equal:active {
+  background-color: #f2613f;
+}
+
+#equal {
+  flex: 2;
+}
