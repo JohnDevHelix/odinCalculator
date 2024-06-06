@@ -71,8 +71,6 @@ body {
   font-size: 25px;
 }
 
-/* major commit - updated styles for new buttons */
-
 .buttons:hover {
   background-color: #577b8d;
 }
