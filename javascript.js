@@ -233,5 +233,14 @@ divButtons.forEach((button) => {
         secondNum = secondDigit.innerHTML;
       }
     }
+
+    // make firstDigit size larger
+
+    if (firstDigit.innerHTML != "" && operatorDiv.innerHTML == "" && secondDigit.innerHTML == "") {
+        firstDigit.style.fontSize = "xx-large";
+    } else if (secondDigit.innerHTML != "") {
+        firstDigit.style.fontSize = "initial";
+    }
+
   });
 });
