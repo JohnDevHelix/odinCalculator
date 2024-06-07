@@ -18,7 +18,9 @@ body {
   border: 8px white ridge;
   flex-direction: column;
   height: 90px;
-  width: 414px;
+  width: 404px;
+  color: white;
+  padding-right: 10px;
 }
 
 .main-container {
@@ -76,13 +78,6 @@ body {
 
 .buttons:active {
   background-color: #57a6a1;
-}
-
-.first-num,
-.second-num,
-.operator {
-  padding-right: 10px;
-  color: white;
 }
 
 #dot {
