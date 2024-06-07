@@ -23,7 +23,7 @@ function toPercent(a) {
 }
 
 function getTotal() {
-    if (total > 99999999999999) {
+    if (total > 999999999999) {
         return (firstDigit.innerHTML = total.toExponential(7));
     } else {
         return (firstDigit.innerHTML = parseFloat(total.toFixed(2)));
