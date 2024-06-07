@@ -19,7 +19,7 @@ function toDivide(a, b) {
 }
 
 function toPercent(a) {
-  return total = Math.floor((a * 0.0100) * 100) / 100;
+  return (total = Math.floor(a * 0.01 * 100) / 100);
 }
 
 let firstNum = 0;
@@ -48,12 +48,18 @@ const resultDiv = document.querySelector(".result");
 resultDiv.appendChild(operatorDiv);
 resultDiv.appendChild(secondDiv);
 
+firstDigit.style.paddingBottom = "6px";
+operatorDiv.style.paddingBottom = "6px";
+
 const divButtons = document.querySelectorAll(".buttons");
 divButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const opButton = document.querySelector(".operator");
     const secondDigit = document.querySelector(".second-num");
 
+    if (operatorDiv.innerHTML != "" && secondDigit.innerHTML == "") {
+      secondDiv.style.paddingBottom = "10px";
+    }
     // getFirstDigit
 
     if (
@@ -236,11 +242,14 @@ divButtons.forEach((button) => {
 
     // make firstDigit size larger
 
-    if (firstDigit.innerHTML != "" && operatorDiv.innerHTML == "" && secondDigit.innerHTML == "") {
-        firstDigit.style.fontSize = "xx-large";
+    if (
+      firstDigit.innerHTML != "" &&
+      operatorDiv.innerHTML == "" &&
+      secondDigit.innerHTML == ""
+    ) {
+      firstDigit.style.fontSize = "xx-large";
     } else if (secondDigit.innerHTML != "") {
-        firstDigit.style.fontSize = "initial";
+      firstDigit.style.fontSize = "initial";
     }
-
   });
 });
