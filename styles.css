@@ -17,7 +17,7 @@ body {
   align-items: flex-end;
   border: 8px white ridge;
   flex-direction: column;
-  height: 90px;
+  height: 115px;
   width: 404px;
   color: white;
   padding-right: 10px;
@@ -69,7 +69,6 @@ body {
   color: whitesmoke;
   background-color: #344c64;
   font-weight: bolder;
-  font-size: 25px;
 }
 
 .buttons:hover {
