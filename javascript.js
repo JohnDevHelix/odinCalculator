@@ -18,6 +18,10 @@ function toDivide(a, b) {
   return (firstDigit.innerHTML = parseFloat(total.toFixed(2)));
 }
 
+function toPercent(a) {
+   return total = parseFloat(a * 0.0100);
+}
+
 let firstNum = 0;
 let operator;
 let secondNum = 0;
@@ -183,6 +187,7 @@ divButtons.forEach((button) => {
         total == undefined
       ) {
         firstDigit.innerHTML = firstDigit.innerHTML.slice(0, -1);
+        firstNum = firstDigit.innerHTML;
       } else if (
         firstDigit.innerHTML != "" &&
         operatorDiv.innerHTML != "" &&
@@ -196,6 +201,7 @@ divButtons.forEach((button) => {
       ) {
         secondDigit.innerHTML = secondDigit.innerHTML.slice(0, -1);
       }
+      
     }
 
     // if Infinity or NaN
@@ -205,5 +211,18 @@ divButtons.forEach((button) => {
         operatorDisabled.disabled = true;
       });
     }
+
+    // toPercent
+
+    if (button.innerHTML == "%") {
+        if (operatorDiv.innerHTML == "" && secondDigit.innerHTML == "") {
+            firstDigit.innerHTML = toPercent(firstNum);
+            firstNum = firstDigit.innerHTML;
+        } else if (operatorDiv.innerHTML != "" && secondDigit.innerHTML != "") {
+            secondDigit.innerHTML = toPercent(secondNum);
+            secondNum = secondDigit.innerHTML;
+        }
+    }
+
   });
 });
