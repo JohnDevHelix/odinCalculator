@@ -18,14 +18,6 @@ function toDivide(a, b) {
   return (firstDigit.innerHTML = parseFloat(total.toFixed(2)));
 }
 
-function mouseToEnter(hover) {
-  hover.target.style.backgroundColor = "#577b8d";
-}
-
-function mouseToLeave(hover) {
-  hover.target.style.backgroundColor = "#344c64";
-}
-
 let firstNum = 0;
 let operator;
 let secondNum = 0;
@@ -92,7 +84,8 @@ divButtons.forEach((button) => {
       button.innerHTML != "." &&
       button.innerHTML != "=" &&
       button.innerHTML != "CE" &&
-      button.innerHTML != "C"
+      button.innerHTML != "C" &&
+      button.innerHTML != "%"
     ) {
       if (secondDigit.innerHTML == "") {
         if (firstNum === "0.") {
@@ -160,7 +153,7 @@ divButtons.forEach((button) => {
         secondDigit.innerHTML == "" &&
         total == undefined
       ) {
-        firstDigit.innerHTML = firstNum;
+        firstDigit.innerHTML = parseFloat(firstNum);
       } else if (
         firstDigit.innerHTML != "" &&
         operatorDiv.innerHTML != "" &&
