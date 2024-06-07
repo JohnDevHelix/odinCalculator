@@ -23,7 +23,7 @@ function toPercent(a) {
 }
 
 function getTotal() {
-    if (total > 999999999999999) {
+    if (total > 99999999999999) {
         return (firstDigit.innerHTML = total.toExponential(7));
     } else {
         return (firstDigit.innerHTML = parseFloat(total.toFixed(2)));
@@ -56,18 +56,11 @@ const resultDiv = document.querySelector(".result");
 resultDiv.appendChild(operatorDiv);
 resultDiv.appendChild(secondDiv);
 
-firstDigit.style.paddingBottom = "6px";
-operatorDiv.style.paddingBottom = "6px";
-
 const divButtons = document.querySelectorAll(".buttons");
 divButtons.forEach((button) => {
     button.addEventListener("click", () => {
         const opButton = document.querySelector(".operator");
         const secondDigit = document.querySelector(".second-num");
-
-        if (operatorDiv.innerHTML != "" && secondDigit.innerHTML == "") {
-            secondDiv.style.paddingBottom = "10px";
-        }
 
         // getFirstDigit
 
@@ -110,8 +103,8 @@ divButtons.forEach((button) => {
                 if (firstNum === "0.") {
                     firstDigit.innerHTML = 0;
                 }
-                opButton.innerHTML = button.innerHTML;
-                operator = opButton.innerHTML;
+                operatorDiv.innerHTML = button.innerHTML;
+                operator = operatorDiv.innerHTML;
             } else if (operator != undefined) {
                 firstDigit.innerHTML = "";
                 secondDiv.innerHTML = "";
@@ -151,7 +144,6 @@ divButtons.forEach((button) => {
         // getReset
 
         if (button.innerHTML == "C") {
-            secondDiv.style.paddingBottom = "initial";
             firstDigit.innerHTML = "";
             secondDiv.innerHTML = "";
             operatorDiv.innerHTML = "";
@@ -167,7 +159,6 @@ divButtons.forEach((button) => {
         // getEqual
 
         if (button.innerHTML == "=") {
-            secondDiv.style.paddingBottom = "initial";
             if (
                 firstDigit.innerHTML != "" &&
                 opButton.innerHTML == "" &&
@@ -254,8 +245,8 @@ divButtons.forEach((button) => {
         // make firstDigit size larger
 
         if (
-            firstDigit.innerHTML != "" &&
-            operatorDiv.innerHTML == "" &&
+            (firstDigit.innerHTML != "" ||
+            operatorDiv.innerHTML != "") &&
             secondDigit.innerHTML == ""
         ) {
             firstDigit.style.fontSize = "50px";
