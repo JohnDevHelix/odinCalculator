@@ -19,7 +19,7 @@ function toDivide(a, b) {
 }
 
 function toPercent(a) {
-   return total = parseFloat(a * 0.0100);
+  return total = Math.floor((a * 0.0100) * 100) / 100;
 }
 
 let firstNum = 0;
@@ -201,7 +201,6 @@ divButtons.forEach((button) => {
       ) {
         secondDigit.innerHTML = secondDigit.innerHTML.slice(0, -1);
       }
-      
     }
 
     // if Infinity or NaN
@@ -215,14 +214,24 @@ divButtons.forEach((button) => {
     // toPercent
 
     if (button.innerHTML == "%") {
-        if (operatorDiv.innerHTML == "" && secondDigit.innerHTML == "") {
-            firstDigit.innerHTML = toPercent(firstNum);
-            firstNum = firstDigit.innerHTML;
-        } else if (operatorDiv.innerHTML != "" && secondDigit.innerHTML != "") {
-            secondDigit.innerHTML = toPercent(secondNum);
-            secondNum = secondDigit.innerHTML;
-        }
+      if (
+        operatorDiv.innerHTML == "" &&
+        secondDigit.innerHTML == "" &&
+        total == undefined
+      ) {
+        firstDigit.innerHTML = toPercent(firstNum);
+        firstNum = firstDigit.innerHTML;
+      } else if (
+        operatorDiv.innerHTML == "" &&
+        secondDigit.innerHTML == "" &&
+        total != undefined
+      ) {
+        firstDigit.innerHTML = toPercent(total);
+        total = firstDigit.innerHTML;
+      } else if (operatorDiv.innerHTML != "" && secondDigit.innerHTML != "") {
+        secondDigit.innerHTML = toPercent(secondNum);
+        secondNum = secondDigit.innerHTML;
+      }
     }
-
   });
 });
