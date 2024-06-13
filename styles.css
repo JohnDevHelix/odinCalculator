@@ -110,6 +110,7 @@ body {
 .buttons {
   border: none;
   font-size: 20px;
+  outline: none;
 }
 
 .first-num {
