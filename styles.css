@@ -11,30 +11,35 @@ body {
   padding-top: 10rem;
 }
 
-
-/* commit: increased result height */
 .result {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  border: 8px white ridge;
+  border: 8px white double;
   flex-direction: column;
   height: 120px;
-  width: 404px;
-  color: white;
+  width: 424px;
   padding-right: 10px;
+  background-color: #cbcbcb;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .main-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 5px;
+  
 }
 
 .calc-container {
   display: flex;
   gap: 10px;
+  background-color: #dddddd;
+  padding: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .num-container {
