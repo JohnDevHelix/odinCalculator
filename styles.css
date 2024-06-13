@@ -11,13 +11,15 @@ body {
   padding-top: 10rem;
 }
 
+
+/* commit: increased result height */
 .result {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   border: 8px white ridge;
   flex-direction: column;
-  height: 115px;
+  height: 120px;
   width: 404px;
   color: white;
   padding-right: 10px;
@@ -108,4 +110,16 @@ body {
 .buttons {
   border: none;
   font-size: 20px;
+}
+
+.first-num {
+  font-size: 50px;
+}
+
+.second-num {
+  font-size: 35px;
+}
+
+.operator {
+  font-size: 40px;
 }
