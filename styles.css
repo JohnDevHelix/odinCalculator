@@ -8,7 +8,7 @@ body {
 .result-container {
   display: flex;
   justify-content: center;
-  padding-top: 10rem;
+  padding-top: 8rem;
 }
 
 .result {
@@ -17,7 +17,7 @@ body {
   align-items: flex-end;
   border: 8px white double;
   flex-direction: column;
-  height: 120px;
+  height: 115px;
   width: 424px;
   padding-right: 10px;
   background-color: #cbcbcb;
@@ -78,14 +78,6 @@ body {
   font-weight: bolder;
 }
 
-.buttons:hover {
-  background-color: #577b8d;
-}
-
-.buttons:active {
-  background-color: #57a6a1;
-}
-
 #dot {
   font-weight: bolder;
   font-size: 25px;
@@ -96,16 +88,6 @@ body {
   font-size: 30px;
   background-color: #8c6a5d;
   font-weight: bolder;
-}
-
-#clear:hover,
-#equal:hover {
-  background-color: #5f374b;
-}
-
-#clear:active,
-#equal:active {
-  background-color: #f2613f;
 }
 
 #equal {
