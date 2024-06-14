@@ -294,8 +294,7 @@ divButtons.forEach((button) => {
 });
 
 document.addEventListener(
-    "keydown",
-    (keyboard = (press) => {
+    "keydown", (press) => {
         let keyPress = press.key;
 
         if (
@@ -371,5 +370,91 @@ document.addEventListener(
         if (firstDigit.innerHTML == Infinity || firstDigit.innerHTML == "NaN") {
             getNan(keyPress);
         }
+    });
+
+
+
+// Change background colors
+
+document.querySelectorAll("button").forEach((key) => {
+    key.addEventListener("mouseenter", () => {
+        if (key.innerHTML == "=" || key.innerHTML == "C") {
+            key.style.backgroundColor = "#5f374b";
+        } else {
+            key.style.backgroundColor = "#577b8d";
+        }
     })
-);
+})
+
+document.querySelectorAll("button").forEach((key) => {
+    key.addEventListener("mouseout", () => {
+        key.style.backgroundColor = "";
+    })
+})
+
+document.querySelectorAll("button").forEach((key) => {
+    key.addEventListener("click", () => {
+        if (key.innerHTML == "=" || key.innerHTML == "C") {
+            key.style.backgroundColor = "#f2613f";
+            setTimeout(() => {
+                key.style.backgroundColor = "";
+            }, 100);
+        } else {
+            key.style.backgroundColor = "#57a6a1";
+            setTimeout(() => {
+                key.style.backgroundColor = "";
+            }, 100);
+        }
+    })
+})
+
+document.addEventListener("keydown", (press) => {
+
+    let keyPress = press.key
+
+    if (keyPress === "1") {
+        document.querySelector("#one").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "2") {
+        document.querySelector("#two").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "3") {
+        document.querySelector("#three").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "4") {
+        document.querySelector("#four").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "5") {
+        document.querySelector("#five").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "6") {
+        document.querySelector("#six").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "7") {
+        document.querySelector("#seven").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "8") {
+        document.querySelector("#eight").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "9") {
+        document.querySelector("#nine").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "0") {
+        document.querySelector("#zero").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === ".") {
+        document.querySelector("#dot").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "+") {
+        document.querySelector("#add").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "-") {
+        document.querySelector("#minus").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "*") {
+        document.querySelector("#multiply").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "/") {
+        document.querySelector("#divide").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "Backspace") {
+        document.querySelector("#clear-last").style.backgroundColor = "#57a6a1";
+    } else if (keyPress === "Enter") {
+        document.querySelector("#equal").style.backgroundColor = "#f2613f";
+    } else if (keyPress === "Escape") {
+        document.querySelector("#clear").style.backgroundColor = "#f2613f";
+    }
+})
+
+document.addEventListener("keyup", (press) => {
+
+    document.querySelectorAll("button").forEach((button) => {
+        button.style.backgroundColor = "";
+    })
+
+})
